@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live AI First Aid Detection</title>
+    <style class="">
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+video, canvas, img {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Live AI First Aid Detection</h1>
+</header>
+<div class="container">
+    <h1>Emergency Aid Assistant</h1>
+    
+    <div class="upload-section">
+        <input type="file" accept="image/*" id="fileInput">
+        <button onclick="captureFromWebcam()">Capture from Webcam</button>
+    </div>
+    
+    <video id="webcam" autoplay></video>
+    <canvas id="canvas"></canvas>
+    <img id="preview" src="" alt="Captured Image">
+    
+    <button onclick="analyzeImage()">Analyze</button>
+    
+    <div id="firstAidGuidance" class="hidden">
+        <h2>First Aid Guidance</h2>
+        <p id="guidanceText"></p>
+    </div>
+
+    <div class="emergency-section">
+        <h2>Emergency Services</h2>
+        <p>Call 911 or your local emergency number immediately if needed.</p>
+    </div>
+</div>
+<main>
+    <img src="{{ url_for('video_feed') }}" width="70%">
+</main>
+
+<a href="index.html">Go Back</a>
+
+</body>
+</html>

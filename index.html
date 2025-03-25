@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Aid Response Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+  <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  select, button {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #map {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+}
+button {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>First Aid Response Platform</h1>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Select an Emergency</h2>
+      <select id="emergencySelect" onchange="showFirstAidInstructions()">
+        <option value="">Choose an Emergency...</option>
+        <option value="bleeding">Bleeding</option>
+        <option value="burn">Burn</option>
+        <option value="choking">Choking</option>
+        <option value="heartAttack">Heart Attack</option>
+        <option value="fracture">Fracture</option>
+      </select>
+      <div>
+        <a href="detect.html"><h2>Detect by Image</h2></a>
+      </div>
+      <div id="firstAidInstructions">
+        <h3>Instructions:</h3>
+        <p id="instructionsText">Please select an emergency to get instructions.</p>
+      </div>
+
+      <h2>Find Nearby Emergency Services</h2>
+      <select id="serviceType">
+        <option value="hospital">Hospital</option>
+        <option value="police">Clinic</option>
+      
+      </select>
+      <button onclick="findNearbyServices()">Find Services</button>
+
+      <div id="map"></div>
+
+    
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 First Aid Response Platform</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
